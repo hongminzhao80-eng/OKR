@@ -2247,6 +2247,12 @@
         }
 
         function updateDepartmentPersonsFromUsers() {
+            users.forEach(user => {
+                if (user.dept && !departmentPersons[user.dept]) {
+                    departmentPersons[user.dept] = [];
+                }
+            });
+
             for (const dept in departmentPersons) {
                 departmentPersons[dept] = users
                     .filter(user => user.dept === dept)
