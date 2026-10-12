@@ -1130,6 +1130,12 @@
                         <label>选择科室</label>
                         <select id="department-select">
                             <option value="">请选择科室...</option>
+                            <option value="obstetrics">产科</option>
+                            <option value="gynecology">妇科</option>
+                            <option value="pediatrics">儿科</option>
+                            <option value="health-edu">健康教育科</option>
+                            <option value="maternal-health">孕产妇保健科</option>
+                            <option value="child-health">儿童保健科</option>
                             <option value="unit">院领导</option>
                             <option value="party-office">党委办、行政办</option>
                             <option value="conduct-office">行风办</option>
@@ -1194,6 +1200,12 @@
                     <div class="form-group">
                         <select id="user-dept-filter" onchange="filterUsers()">
                             <option value="">全部科室</option>
+                            <option value="obstetrics">产科</option>
+                            <option value="gynecology">妇科</option>
+                            <option value="pediatrics">儿科</option>
+                            <option value="health-edu">健康教育科</option>
+                            <option value="maternal-health">孕产妇保健科</option>
+                            <option value="child-health">儿童保健科</option>
                             <option value="unit">院领导</option>
                             <option value="party-office">党委办、行政办</option>
                             <option value="conduct-office">行风办</option>
@@ -1326,6 +1338,12 @@
                     <label>科室</label>
                     <select id="new-user-dept" required>
                         <option value="">请选择科室...</option>
+                        <option value="obstetrics">产科</option>
+                        <option value="gynecology">妇科</option>
+                        <option value="pediatrics">儿科</option>
+                        <option value="health-edu">健康教育科</option>
+                        <option value="maternal-health">孕产妇保健科</option>
+                        <option value="child-health">儿童保健科</option>
                         <option value="unit">院领导</option>
                         <option value="party-office">党委办、行政办</option>
                         <option value="conduct-office">行风办</option>
@@ -1377,6 +1395,12 @@
                     <label>科室</label>
                     <select id="edit-user-dept" required>
                         <option value="">请选择科室...</option>
+                        <option value="obstetrics">产科</option>
+                        <option value="gynecology">妇科</option>
+                        <option value="pediatrics">儿科</option>
+                        <option value="health-edu">健康教育科</option>
+                        <option value="maternal-health">孕产妇保健科</option>
+                        <option value="child-health">儿童保健科</option>
                         <option value="unit">院领导</option>
                         <option value="party-office">党委办、行政办</option>
                         <option value="conduct-office">行风办</option>
@@ -1990,6 +2014,13 @@
                     'staff': '普通员工'
                 };
                 const deptNames = {
+                    'admin': '行政办公室',
+                    'obstetrics': '产科',
+                    'gynecology': '妇科',
+                    'pediatrics': '儿科',
+                    'health-edu': '健康教育科',
+                    'maternal-health': '孕产妇保健科',
+                    'child-health': '儿童保健科',
                     'unit': '院领导',
                     'party-office': '党委办、行政办',
                     'conduct-office': '行风办',
@@ -2038,6 +2069,13 @@
 
             const roleNames = { 'admin': '系统管理员', 'manager': '科室管理员', 'staff': '普通员工' };
             const deptNames = {
+                'admin': '行政办公室',
+                'obstetrics': '产科',
+                'gynecology': '妇科',
+                'pediatrics': '儿科',
+                'health-edu': '健康教育科',
+                'maternal-health': '孕产妇保健科',
+                'child-health': '儿童保健科',
                 'unit': '院领导',
                 'party-office': '党委办、行政办',
                 'conduct-office': '行风办',
@@ -2389,7 +2427,7 @@
             const scopedPairs = getCurrentUserOKRPairs();
             const allPairs = getAllOKRPairs();
             const periodSelect = document.getElementById('period-select');
-            const selectedPeriod = periodSelect.options[periodSelect.selectedIndex];
+            const selectedPeriod = periodSelect?.options?.[periodSelect.selectedIndex];
             const scopeLabel = scopeLabels[currentUser.role] || '我的 OKR';
             const roleName = roleNames[currentUser.role] || '用户';
             const departmentName = departmentNames[currentUser.dept] || currentUser.dept;
@@ -2660,7 +2698,10 @@
                 updatePersonSelect(this.value);
             });
 
-            document.getElementById('period-select').addEventListener('change', renderHome);
+            const periodSelect = document.getElementById('period-select');
+            if (periodSelect) {
+                periodSelect.addEventListener('change', renderHome);
+            }
 
             addOKRPair();
             loadTemplates();
