@@ -658,6 +658,254 @@
             background: #f8d7da;
             color: #721c24;
         }
+
+        .home-hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            padding: 28px;
+            margin-bottom: 28px;
+            color: white;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 16px;
+        }
+
+        .home-eyebrow {
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            opacity: 0.8;
+        }
+
+        .home-hero h2 {
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .home-summary {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .home-period {
+            min-width: 190px;
+            padding: 16px 20px;
+            text-align: center;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.28);
+            border-radius: 12px;
+        }
+
+        .home-period span,
+        .home-period strong {
+            display: block;
+        }
+
+        .home-period span {
+            margin-bottom: 6px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .home-period strong {
+            font-size: 16px;
+        }
+
+        .home-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
+            gap: 20px;
+        }
+
+        .home-panel {
+            padding: 24px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 12px;
+        }
+
+        .home-panel h3 {
+            margin-bottom: 6px;
+            color: #1e3c72;
+            font-size: 18px;
+        }
+
+        .home-panel > p {
+            margin-bottom: 20px;
+            color: #6c757d;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .home-action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
+        }
+
+        .home-action {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            width: 100%;
+            min-height: 104px;
+            padding: 16px;
+            color: #333;
+            text-align: left;
+            background: white;
+            border: 1px solid #e1e6f5;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .home-action:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .home-action-icon {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            font-size: 18px;
+            background: #eef1ff;
+            border-radius: 9px;
+        }
+
+        .home-action strong,
+        .home-action small {
+            display: block;
+        }
+
+        .home-action strong {
+            margin-bottom: 5px;
+            color: #1e3c72;
+            font-size: 14px;
+        }
+
+        .home-action small {
+            color: #6c757d;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .home-task {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .home-task-status {
+            flex: 0 0 auto;
+            width: 10px;
+            height: 10px;
+            margin-top: 5px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .home-task strong,
+        .home-task p {
+            display: block;
+        }
+
+        .home-task strong {
+            margin-bottom: 6px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .home-task p {
+            color: #6c757d;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .home-guide {
+            display: grid;
+            gap: 14px;
+        }
+
+        .home-guide-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .home-guide-number {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            color: #667eea;
+            font-size: 13px;
+            font-weight: bold;
+            background: #eef1ff;
+            border-radius: 50%;
+        }
+
+        .home-guide-item strong,
+        .home-guide-item p {
+            display: block;
+        }
+
+        .home-guide-item strong {
+            margin-bottom: 3px;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .home-guide-item p {
+            color: #6c757d;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .nav {
+                padding: 0;
+                overflow-x: auto;
+            }
+
+            .nav-item {
+                flex: 0 0 auto;
+                padding: 14px 18px;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .home-hero {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 22px;
+            }
+
+            .home-period {
+                width: 100%;
+            }
+
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -752,7 +1000,8 @@
             </div>
 
             <div class="nav">
-                <div class="nav-item active" data-section="create">OKR拟定</div>
+                <div class="nav-item active" data-section="home">首页</div>
+                <div class="nav-item" data-section="create">OKR拟定</div>
                 <div class="nav-item" data-section="users">用户管理</div>
                 <div class="nav-item" data-section="templates">模板库</div>
                 <div class="nav-item" data-section="tree">目标树</div>
@@ -760,8 +1009,108 @@
             </div>
 
             <div class="main-content">
+                <!-- 首页区域 -->
+                <div class="section active" id="home-section">
+                    <div class="home-hero">
+                        <div>
+                            <p class="home-eyebrow">OKR 工作台</p>
+                            <h2>欢迎回来，<span id="home-user-name">同事</span></h2>
+                            <p class="home-summary" id="home-user-summary">在这里查看目标进展，并开始本期 OKR 工作。</p>
+                        </div>
+                        <div class="home-period">
+                            <span>当前考核周期</span>
+                            <strong id="home-period">2026年第一季度 (Q1)</strong>
+                        </div>
+                    </div>
+
+                    <div class="stats-cards">
+                        <div class="stat-card">
+                            <h3 id="home-scope-objectives">0</h3>
+                            <p id="home-scope-objectives-label">我的 OKR</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="home-scope-key-results">0</h3>
+                            <p>对应关键结果</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 id="home-total-objectives">0</h3>
+                            <p>系统已保存目标</p>
+                        </div>
+                    </div>
+
+                    <div class="home-grid">
+                        <section class="home-panel" aria-labelledby="home-actions-title">
+                            <h3 id="home-actions-title">快捷操作</h3>
+                            <p>从常用功能开始本期 OKR 工作。</p>
+                            <div class="home-action-grid">
+                                <button type="button" class="home-action" onclick="switchSection('create')">
+                                    <span class="home-action-icon">✍️</span>
+                                    <span>
+                                        <strong>拟定 OKR</strong>
+                                        <small>创建并校验新的目标与关键结果</small>
+                                    </span>
+                                </button>
+                                <button type="button" class="home-action" onclick="showTemplates()">
+                                    <span class="home-action-icon">📋</span>
+                                    <span>
+                                        <strong>使用模板</strong>
+                                        <small>从现有模板快速开始拟定</small>
+                                    </span>
+                                </button>
+                                <button type="button" class="home-action" onclick="switchSection('tree')">
+                                    <span class="home-action-icon">🌳</span>
+                                    <span>
+                                        <strong>查看目标树</strong>
+                                        <small>了解单位、科室与个人目标对齐情况</small>
+                                    </span>
+                                </button>
+                            </div>
+                        </section>
+
+                        <aside class="home-panel" aria-labelledby="home-task-title">
+                            <h3 id="home-task-title">本期工作提示</h3>
+                            <p id="home-task-description">请根据职责范围拟定本期 OKR，并完成校验后保存。</p>
+                            <div class="home-task">
+                                <span class="home-task-status" aria-hidden="true"></span>
+                                <div>
+                                    <strong id="home-task-status">准备开始</strong>
+                                    <p id="home-task-detail">从“拟定 OKR”开始，系统会实时提示需要完善的内容。</p>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+
+                    <section class="home-panel" style="margin-top: 20px;" aria-labelledby="home-guide-title">
+                        <h3 id="home-guide-title">使用指引</h3>
+                        <p>三个步骤完成从目标拟定到对齐查看的工作闭环。</p>
+                        <div class="home-guide">
+                            <div class="home-guide-item">
+                                <span class="home-guide-number">1</span>
+                                <div>
+                                    <strong>选择目标层级</strong>
+                                    <p>根据您的角色，选择单位、科室或个人层面的 OKR。</p>
+                                </div>
+                            </div>
+                            <div class="home-guide-item">
+                                <span class="home-guide-number">2</span>
+                                <div>
+                                    <strong>填写并校验 OKR</strong>
+                                    <p>设置清晰的目标和可量化的关键结果，并根据实时反馈优化。</p>
+                                </div>
+                            </div>
+                            <div class="home-guide-item">
+                                <span class="home-guide-number">3</span>
+                                <div>
+                                    <strong>保存并查看对齐关系</strong>
+                                    <p>提交后可在目标树中查看各层级目标的整体情况。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
                 <!-- OKR拟定区域 -->
-                <div class="section active" id="create-section">
+                <div class="section" id="create-section">
                     <div class="level-selector">
                         <div class="level-btn active" data-level="unit">
                             <h3>单位层面</h3>
@@ -1240,6 +1589,7 @@
             adjustUIForRole(currentUser.role);
             loadDataFromStorage();
             updateWelcomeMessage();
+            switchSection('home');
             alert(`欢迎回来，${currentUser.name}！`);
         }
 
@@ -1311,6 +1661,7 @@
                     timestamp: new Date().toISOString()
                 };
                 localStorage.setItem('okrSystemData', JSON.stringify(dataToSave));
+                renderHome();
                 console.log('数据已保存到本地存储');
             } catch (error) {
                 console.error('保存数据失败：', error);
@@ -1334,6 +1685,7 @@
                     console.log('数据已从本地存储加载');
                     renderUsers();
                     updateDepartmentPersonsFromUsers();
+                    renderHome();
                 }
             } catch (error) {
                 console.error('加载数据失败：', error);
@@ -1952,6 +2304,123 @@
             }
         }
 
+        // ==================== 首页功能 ====================
+
+        function getOKRPairs(value) {
+            return Array.isArray(value) ? value : [];
+        }
+
+        function getKeyResultCount(pairs) {
+            return getOKRPairs(pairs).reduce((total, pair) => {
+                return total + getOKRPairs(pair && pair.ks).filter(keyResult => keyResult && String(keyResult).trim()).length;
+            }, 0);
+        }
+
+        function getAllOKRPairs() {
+            const allPairs = [...getOKRPairs(savedOKRs.unit)];
+
+            Object.values(savedOKRs.dept || {}).forEach(pairs => {
+                allPairs.push(...getOKRPairs(pairs));
+            });
+
+            Object.values(savedOKRs.person || {}).forEach(personOKRs => {
+                if (Array.isArray(personOKRs)) {
+                    allPairs.push(...personOKRs);
+                    return;
+                }
+
+                Object.values(personOKRs || {}).forEach(pairs => {
+                    allPairs.push(...getOKRPairs(pairs));
+                });
+            });
+
+            return allPairs;
+        }
+
+        function getCurrentUserOKRPairs() {
+            if (!currentUser) return [];
+
+            if (currentUser.role === 'admin') {
+                return getAllOKRPairs();
+            }
+
+            if (currentUser.role === 'manager') {
+                return getOKRPairs((savedOKRs.dept || {})[currentUser.dept]);
+            }
+
+            return getOKRPairs((((savedOKRs.person || {})[currentUser.dept] || {})[currentUser.name]));
+        }
+
+        function renderHome() {
+            if (!currentUser) return;
+
+            const roleNames = {
+                admin: '系统管理员',
+                manager: '科室管理员',
+                staff: '普通员工'
+            };
+            const departmentNames = {
+                admin: '行政办公室',
+                obstetrics: '产科',
+                gynecology: '妇科',
+                pediatrics: '儿科',
+                'health-edu': '健康教育科',
+                'maternal-health': '孕产妇保健科',
+                'child-health': '儿童保健科',
+                unit: '院领导',
+                'party-office': '党委办、行政办',
+                'conduct-office': '行风办',
+                personnel: '人事科',
+                finance: '财务科',
+                'medical-insurance': '医保科',
+                medical: '医务科',
+                nursing: '护理部',
+                'infection-control': '感控科',
+                pharmacy: '药学部',
+                'health-care': '保健部',
+                'reform-office': '医改办',
+                logistics: '后勤保障科'
+            };
+            const scopeLabels = {
+                admin: '系统范围 OKR',
+                manager: '科室 OKR',
+                staff: '个人 OKR'
+            };
+            const scopedPairs = getCurrentUserOKRPairs();
+            const allPairs = getAllOKRPairs();
+            const periodSelect = document.getElementById('period-select');
+            const selectedPeriod = periodSelect.options[periodSelect.selectedIndex];
+            const scopeLabel = scopeLabels[currentUser.role] || '我的 OKR';
+            const roleName = roleNames[currentUser.role] || '用户';
+            const departmentName = departmentNames[currentUser.dept] || currentUser.dept;
+
+            document.getElementById('home-user-name').textContent = currentUser.name;
+            document.getElementById('home-user-summary').textContent =
+                `您正在以${roleName}身份登录${departmentName ? `，所属${departmentName}` : ''}。`;
+            document.getElementById('home-period').textContent = selectedPeriod ? selectedPeriod.textContent : '未选择考核周期';
+            document.getElementById('home-scope-objectives').textContent = scopedPairs.length;
+            document.getElementById('home-scope-objectives-label').textContent = scopeLabel;
+            document.getElementById('home-scope-key-results').textContent = getKeyResultCount(scopedPairs);
+            document.getElementById('home-total-objectives').textContent = allPairs.length;
+
+            if (scopedPairs.length === 0) {
+                document.getElementById('home-task-title').textContent = '本期工作提示';
+                document.getElementById('home-task-description').textContent =
+                    `您还没有保存${scopeLabel}，现在可以开始拟定。`;
+                document.getElementById('home-task-status').textContent = '等待拟定';
+                document.getElementById('home-task-detail').textContent =
+                    '进入“拟定 OKR”，填写目标和关键结果后完成校验并保存。';
+                return;
+            }
+
+            document.getElementById('home-task-title').textContent = '本期工作进展';
+            document.getElementById('home-task-description').textContent =
+                `您已保存 ${scopedPairs.length} 项${scopeLabel}，可继续完善或查看目标对齐关系。`;
+            document.getElementById('home-task-status').textContent = '已保存';
+            document.getElementById('home-task-detail').textContent =
+                `当前包含 ${getKeyResultCount(scopedPairs)} 项关键结果。`;
+        }
+
         // ==================== 界面交互 ====================
 
         function switchSection(sectionName) {
@@ -1967,6 +2436,10 @@
 
             if (sectionName === 'tree') {
                 renderOKRTree();
+            }
+
+            if (sectionName === 'home') {
+                renderHome();
             }
         }
 
@@ -2186,6 +2659,8 @@
             document.getElementById('department-select').addEventListener('change', function() {
                 updatePersonSelect(this.value);
             });
+
+            document.getElementById('period-select').addEventListener('change', renderHome);
 
             addOKRPair();
             loadTemplates();
