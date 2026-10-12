@@ -1612,6 +1612,7 @@
             document.getElementById('main-container').classList.add('active');
             adjustUIForRole(currentUser.role);
             loadDataFromStorage();
+            configureOKRScopeForCurrentUser();
             updateWelcomeMessage();
             switchSection('home');
             alert(`欢迎回来，${currentUser.name}！`);
@@ -1648,6 +1649,32 @@
             const usersNavItem = document.querySelector('[data-section="users"]');
             if (usersNavItem) {
                 usersNavItem.style.display = role === 'admin' ? 'block' : 'none';
+            }
+        }
+
+        function configureOKRScopeForCurrentUser() {
+            if (!currentUser) return;
+
+            const departmentSelect = document.getElementById('department-select');
+            const personSelect = document.getElementById('person-select');
+            const isAdmin = currentUser.role === 'admin';
+
+            if (!departmentSelect) return;
+
+            departmentSelect.disabled = !isAdmin;
+            if (isAdmin) {
+                if (personSelect) personSelect.disabled = false;
+                return;
+            }
+
+            departmentSelect.value = currentUser.dept;
+            updatePersonSelect(currentUser.dept);
+
+            if (personSelect) {
+                personSelect.disabled = currentUser.role === 'staff';
+                if (currentUser.role === 'staff') {
+                    personSelect.value = currentUser.name;
+                }
             }
         }
 
@@ -1964,6 +1991,40 @@
             alert(allValid ? '✓ 所有OKR已通过校验！' : '✗ 部分OKR存在问题，请根据反馈意见修改');
         }
 
+        function hasOKRSubmissionAccess(dept, person) {
+            if (!currentUser) {
+                alert('请先登录后再提交 OKR');
+                return false;
+            }
+
+            if (currentUser.role === 'admin') {
+                return true;
+            }
+
+            if (currentUser.role === 'manager') {
+                if (currentLevel === 'unit') {
+                    alert('科室管理员不能提交单位层面 OKR');
+                    return false;
+                }
+                if (dept !== currentUser.dept) {
+                    alert('只能为本部门提交 OKR');
+                    return false;
+                }
+                return true;
+            }
+
+            if (currentUser.role === 'staff') {
+                if (currentLevel !== 'person' || dept !== currentUser.dept || person !== currentUser.name) {
+                    alert('普通员工只能提交本人的个人 OKR');
+                    return false;
+                }
+                return true;
+            }
+
+            alert('当前账号没有提交 OKR 的权限');
+            return false;
+        }
+
         function submitOKR() {
             okrPairs.forEach(pair => validatePair(pair.id));
             const invalidPairs = okrPairs.filter(p => !p.validation.valid);
@@ -1978,15 +2039,18 @@
             }));
 
             if (currentLevel === 'unit') {
+                if (!hasOKRSubmissionAccess()) return;
                 savedOKRs.unit = validPairs;
             } else if (currentLevel === 'dept') {
                 const dept = document.getElementById('department-select').value;
                 if (!dept) { alert('请先选择科室'); return; }
+                if (!hasOKRSubmissionAccess(dept)) return;
                 savedOKRs.dept[dept] = validPairs;
             } else if (currentLevel === 'person') {
                 const dept = document.getElementById('department-select').value;
                 const person = document.getElementById('person-select').value;
                 if (!dept || !person) { alert('请先选择科室和人员'); return; }
+                if (!hasOKRSubmissionAccess(dept, person)) return;
                 if (!savedOKRs.person[dept]) { savedOKRs.person[dept] = {}; }
                 savedOKRs.person[dept][person] = validPairs;
             }
