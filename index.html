@@ -2574,6 +2574,8 @@
 
         function updatePersonSelect(deptValue) {
             const personSelect = document.getElementById('person-select');
+            if (!personSelect) return;
+
             personSelect.innerHTML = '<option value="">请选择人员...</option>';
 
             if (deptValue && departmentPersons[deptValue]) {
